@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Plant {
+  id        Int        @id @default(autoincrement())
+  name      String     @default("")
+  inverters Inverter[]
+}
+
+model Inverter {
+  id      Int      @id @default(autoincrement())
+  plantId Int
+  plant   Plant    @relation(fields: [plantId], references: [id])
+  metrics Metric[]
+}
+
+model Metric {
+  id          Int      @id @default(autoincrement())
+  inverterId  Int
+  inverter    Inverter @relation(fields: [inverterId], references: [id])
+  activePower Float // Confirmar que está exatamente assim
+  temperature Float
+  timestamp   DateTime @default(now())
+}
