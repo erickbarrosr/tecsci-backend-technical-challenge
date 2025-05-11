@@ -1135,16 +1135,19 @@ export namespace Prisma {
   export type PlantMinAggregateOutputType = {
     id: number | null
     name: string | null
+    createdAt: Date | null
   }
 
   export type PlantMaxAggregateOutputType = {
     id: number | null
     name: string | null
+    createdAt: Date | null
   }
 
   export type PlantCountAggregateOutputType = {
     id: number
     name: number
+    createdAt: number
     _all: number
   }
 
@@ -1160,16 +1163,19 @@ export namespace Prisma {
   export type PlantMinAggregateInputType = {
     id?: true
     name?: true
+    createdAt?: true
   }
 
   export type PlantMaxAggregateInputType = {
     id?: true
     name?: true
+    createdAt?: true
   }
 
   export type PlantCountAggregateInputType = {
     id?: true
     name?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -1262,6 +1268,7 @@ export namespace Prisma {
   export type PlantGroupByOutputType = {
     id: number
     name: string
+    createdAt: Date
     _count: PlantCountAggregateOutputType | null
     _avg: PlantAvgAggregateOutputType | null
     _sum: PlantSumAggregateOutputType | null
@@ -1286,6 +1293,7 @@ export namespace Prisma {
   export type PlantSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    createdAt?: boolean
     inverters?: boolean | Plant$invertersArgs<ExtArgs>
     _count?: boolean | PlantCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["plant"]>
@@ -1293,19 +1301,22 @@ export namespace Prisma {
   export type PlantSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["plant"]>
 
   export type PlantSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["plant"]>
 
   export type PlantSelectScalar = {
     id?: boolean
     name?: boolean
+    createdAt?: boolean
   }
 
-  export type PlantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["plant"]>
+  export type PlantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createdAt", ExtArgs["result"]["plant"]>
   export type PlantInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     inverters?: boolean | Plant$invertersArgs<ExtArgs>
     _count?: boolean | PlantCountOutputTypeDefaultArgs<ExtArgs>
@@ -1321,6 +1332,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
+      createdAt: Date
     }, ExtArgs["result"]["plant"]>
     composites: {}
   }
@@ -1747,6 +1759,7 @@ export namespace Prisma {
   interface PlantFieldRefs {
     readonly id: FieldRef<"Plant", 'Int'>
     readonly name: FieldRef<"Plant", 'String'>
+    readonly createdAt: FieldRef<"Plant", 'DateTime'>
   }
     
 
@@ -4384,7 +4397,8 @@ export namespace Prisma {
 
   export const PlantScalarFieldEnum: {
     id: 'id',
-    name: 'name'
+    name: 'name',
+    createdAt: 'createdAt'
   };
 
   export type PlantScalarFieldEnum = (typeof PlantScalarFieldEnum)[keyof typeof PlantScalarFieldEnum]
@@ -4459,20 +4473,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Float'
-   */
-  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
-    
-
-
-  /**
-   * Reference to a field of type 'Float[]'
-   */
-  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
-    
-
-
-  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -4483,6 +4483,20 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
   /**
    * Deep Input Types
@@ -4495,12 +4509,14 @@ export namespace Prisma {
     NOT?: PlantWhereInput | PlantWhereInput[]
     id?: IntFilter<"Plant"> | number
     name?: StringFilter<"Plant"> | string
+    createdAt?: DateTimeFilter<"Plant"> | Date | string
     inverters?: InverterListRelationFilter
   }
 
   export type PlantOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
     inverters?: InverterOrderByRelationAggregateInput
   }
 
@@ -4510,12 +4526,14 @@ export namespace Prisma {
     OR?: PlantWhereInput[]
     NOT?: PlantWhereInput | PlantWhereInput[]
     name?: StringFilter<"Plant"> | string
+    createdAt?: DateTimeFilter<"Plant"> | Date | string
     inverters?: InverterListRelationFilter
   }, "id">
 
   export type PlantOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
     _count?: PlantCountOrderByAggregateInput
     _avg?: PlantAvgOrderByAggregateInput
     _max?: PlantMaxOrderByAggregateInput
@@ -4529,6 +4547,7 @@ export namespace Prisma {
     NOT?: PlantScalarWhereWithAggregatesInput | PlantScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Plant"> | number
     name?: StringWithAggregatesFilter<"Plant"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Plant"> | Date | string
   }
 
   export type InverterWhereInput = {
@@ -4635,38 +4654,45 @@ export namespace Prisma {
 
   export type PlantCreateInput = {
     name?: string
+    createdAt?: Date | string
     inverters?: InverterCreateNestedManyWithoutPlantInput
   }
 
   export type PlantUncheckedCreateInput = {
     id?: number
     name?: string
+    createdAt?: Date | string
     inverters?: InverterUncheckedCreateNestedManyWithoutPlantInput
   }
 
   export type PlantUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     inverters?: InverterUpdateManyWithoutPlantNestedInput
   }
 
   export type PlantUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     inverters?: InverterUncheckedUpdateManyWithoutPlantNestedInput
   }
 
   export type PlantCreateManyInput = {
     id?: number
     name?: string
+    createdAt?: Date | string
   }
 
   export type PlantUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PlantUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type InverterCreateInput = {
@@ -4783,6 +4809,17 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type InverterListRelationFilter = {
     every?: InverterWhereInput
     some?: InverterWhereInput
@@ -4796,6 +4833,7 @@ export namespace Prisma {
   export type PlantCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type PlantAvgOrderByAggregateInput = {
@@ -4805,11 +4843,13 @@ export namespace Prisma {
   export type PlantMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type PlantMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type PlantSumOrderByAggregateInput = {
@@ -4848,6 +4888,20 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type PlantScalarRelationFilter = {
@@ -4899,17 +4953,6 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type InverterScalarRelationFilter = {
@@ -4971,20 +5014,6 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
   export type InverterCreateNestedManyWithoutPlantInput = {
     create?: XOR<InverterCreateWithoutPlantInput, InverterUncheckedCreateWithoutPlantInput> | InverterCreateWithoutPlantInput[] | InverterUncheckedCreateWithoutPlantInput[]
     connectOrCreate?: InverterCreateOrConnectWithoutPlantInput | InverterCreateOrConnectWithoutPlantInput[]
@@ -5001,6 +5030,10 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type InverterUpdateManyWithoutPlantNestedInput = {
@@ -5109,10 +5142,6 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
-  }
-
   export type InverterUpdateOneRequiredWithoutMetricsNestedInput = {
     create?: XOR<InverterCreateWithoutMetricsInput, InverterUncheckedCreateWithoutMetricsInput>
     connectOrCreate?: InverterCreateOrConnectWithoutMetricsInput
@@ -5144,6 +5173,17 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -5190,7 +5230,7 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -5198,7 +5238,10 @@ export namespace Prisma {
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -5215,20 +5258,6 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type InverterCreateWithoutPlantInput = {
@@ -5276,11 +5305,13 @@ export namespace Prisma {
 
   export type PlantCreateWithoutInvertersInput = {
     name?: string
+    createdAt?: Date | string
   }
 
   export type PlantUncheckedCreateWithoutInvertersInput = {
     id?: number
     name?: string
+    createdAt?: Date | string
   }
 
   export type PlantCreateOrConnectWithoutInvertersInput = {
@@ -5324,11 +5355,13 @@ export namespace Prisma {
 
   export type PlantUpdateWithoutInvertersInput = {
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PlantUncheckedUpdateWithoutInvertersInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type MetricUpsertWithWhereUniqueWithoutInverterInput = {

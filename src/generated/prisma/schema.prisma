@@ -11,6 +11,7 @@ datasource db {
 model Plant {
   id        Int        @id @default(autoincrement())
   name      String     @default("")
+  createdAt DateTime   @default(now())
   inverters Inverter[]
 }
 
@@ -25,7 +26,7 @@ model Metric {
   id          Int      @id @default(autoincrement())
   inverterId  Int
   inverter    Inverter @relation(fields: [inverterId], references: [id])
-  activePower Float // Confirmar que está exatamente assim
+  activePower Float
   temperature Float
   timestamp   DateTime @default(now())
 }
