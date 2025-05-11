@@ -11,6 +11,7 @@ datasource db {
 model Plant {  
   id        Int       @id @default(autoincrement())
   name      String    @default("")
+  createdAt DateTime  @default(now()) 
   inverters Inverter[] 
 }
 
