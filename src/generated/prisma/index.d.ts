@@ -2214,16 +2214,19 @@ export namespace Prisma {
 
   export type InverterMinAggregateOutputType = {
     id: number | null
+    name: string | null
     plantId: number | null
   }
 
   export type InverterMaxAggregateOutputType = {
     id: number | null
+    name: string | null
     plantId: number | null
   }
 
   export type InverterCountAggregateOutputType = {
     id: number
+    name: number
     plantId: number
     _all: number
   }
@@ -2241,16 +2244,19 @@ export namespace Prisma {
 
   export type InverterMinAggregateInputType = {
     id?: true
+    name?: true
     plantId?: true
   }
 
   export type InverterMaxAggregateInputType = {
     id?: true
+    name?: true
     plantId?: true
   }
 
   export type InverterCountAggregateInputType = {
     id?: true
+    name?: true
     plantId?: true
     _all?: true
   }
@@ -2343,6 +2349,7 @@ export namespace Prisma {
 
   export type InverterGroupByOutputType = {
     id: number
+    name: string
     plantId: number
     _count: InverterCountAggregateOutputType | null
     _avg: InverterAvgAggregateOutputType | null
@@ -2367,6 +2374,7 @@ export namespace Prisma {
 
   export type InverterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
     plantId?: boolean
     plant?: boolean | PlantDefaultArgs<ExtArgs>
     metrics?: boolean | Inverter$metricsArgs<ExtArgs>
@@ -2375,22 +2383,25 @@ export namespace Prisma {
 
   export type InverterSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
     plantId?: boolean
     plant?: boolean | PlantDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["inverter"]>
 
   export type InverterSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
     plantId?: boolean
     plant?: boolean | PlantDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["inverter"]>
 
   export type InverterSelectScalar = {
     id?: boolean
+    name?: boolean
     plantId?: boolean
   }
 
-  export type InverterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "plantId", ExtArgs["result"]["inverter"]>
+  export type InverterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "plantId", ExtArgs["result"]["inverter"]>
   export type InverterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     plant?: boolean | PlantDefaultArgs<ExtArgs>
     metrics?: boolean | Inverter$metricsArgs<ExtArgs>
@@ -2411,6 +2422,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      name: string
       plantId: number
     }, ExtArgs["result"]["inverter"]>
     composites: {}
@@ -2838,6 +2850,7 @@ export namespace Prisma {
    */
   interface InverterFieldRefs {
     readonly id: FieldRef<"Inverter", 'Int'>
+    readonly name: FieldRef<"Inverter", 'String'>
     readonly plantId: FieldRef<"Inverter", 'Int'>
   }
     
@@ -4406,6 +4419,7 @@ export namespace Prisma {
 
   export const InverterScalarFieldEnum: {
     id: 'id',
+    name: 'name',
     plantId: 'plantId'
   };
 
@@ -4555,6 +4569,7 @@ export namespace Prisma {
     OR?: InverterWhereInput[]
     NOT?: InverterWhereInput | InverterWhereInput[]
     id?: IntFilter<"Inverter"> | number
+    name?: StringFilter<"Inverter"> | string
     plantId?: IntFilter<"Inverter"> | number
     plant?: XOR<PlantScalarRelationFilter, PlantWhereInput>
     metrics?: MetricListRelationFilter
@@ -4562,6 +4577,7 @@ export namespace Prisma {
 
   export type InverterOrderByWithRelationInput = {
     id?: SortOrder
+    name?: SortOrder
     plantId?: SortOrder
     plant?: PlantOrderByWithRelationInput
     metrics?: MetricOrderByRelationAggregateInput
@@ -4572,6 +4588,7 @@ export namespace Prisma {
     AND?: InverterWhereInput | InverterWhereInput[]
     OR?: InverterWhereInput[]
     NOT?: InverterWhereInput | InverterWhereInput[]
+    name?: StringFilter<"Inverter"> | string
     plantId?: IntFilter<"Inverter"> | number
     plant?: XOR<PlantScalarRelationFilter, PlantWhereInput>
     metrics?: MetricListRelationFilter
@@ -4579,6 +4596,7 @@ export namespace Prisma {
 
   export type InverterOrderByWithAggregationInput = {
     id?: SortOrder
+    name?: SortOrder
     plantId?: SortOrder
     _count?: InverterCountOrderByAggregateInput
     _avg?: InverterAvgOrderByAggregateInput
@@ -4592,6 +4610,7 @@ export namespace Prisma {
     OR?: InverterScalarWhereWithAggregatesInput[]
     NOT?: InverterScalarWhereWithAggregatesInput | InverterScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Inverter"> | number
+    name?: StringWithAggregatesFilter<"Inverter"> | string
     plantId?: IntWithAggregatesFilter<"Inverter"> | number
   }
 
@@ -4696,38 +4715,44 @@ export namespace Prisma {
   }
 
   export type InverterCreateInput = {
+    name?: string
     plant: PlantCreateNestedOneWithoutInvertersInput
     metrics?: MetricCreateNestedManyWithoutInverterInput
   }
 
   export type InverterUncheckedCreateInput = {
     id?: number
+    name?: string
     plantId: number
     metrics?: MetricUncheckedCreateNestedManyWithoutInverterInput
   }
 
   export type InverterUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
     plant?: PlantUpdateOneRequiredWithoutInvertersNestedInput
     metrics?: MetricUpdateManyWithoutInverterNestedInput
   }
 
   export type InverterUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     plantId?: IntFieldUpdateOperationsInput | number
     metrics?: MetricUncheckedUpdateManyWithoutInverterNestedInput
   }
 
   export type InverterCreateManyInput = {
     id?: number
+    name?: string
     plantId: number
   }
 
   export type InverterUpdateManyMutationInput = {
-
+    name?: StringFieldUpdateOperationsInput | string
   }
 
   export type InverterUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     plantId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -4921,6 +4946,7 @@ export namespace Prisma {
 
   export type InverterCountOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     plantId?: SortOrder
   }
 
@@ -4931,11 +4957,13 @@ export namespace Prisma {
 
   export type InverterMaxOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     plantId?: SortOrder
   }
 
   export type InverterMinOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     plantId?: SortOrder
   }
 
@@ -5261,11 +5289,13 @@ export namespace Prisma {
   }
 
   export type InverterCreateWithoutPlantInput = {
+    name?: string
     metrics?: MetricCreateNestedManyWithoutInverterInput
   }
 
   export type InverterUncheckedCreateWithoutPlantInput = {
     id?: number
+    name?: string
     metrics?: MetricUncheckedCreateNestedManyWithoutInverterInput
   }
 
@@ -5300,6 +5330,7 @@ export namespace Prisma {
     OR?: InverterScalarWhereInput[]
     NOT?: InverterScalarWhereInput | InverterScalarWhereInput[]
     id?: IntFilter<"Inverter"> | number
+    name?: StringFilter<"Inverter"> | string
     plantId?: IntFilter<"Inverter"> | number
   }
 
@@ -5392,11 +5423,13 @@ export namespace Prisma {
   }
 
   export type InverterCreateWithoutMetricsInput = {
+    name?: string
     plant: PlantCreateNestedOneWithoutInvertersInput
   }
 
   export type InverterUncheckedCreateWithoutMetricsInput = {
     id?: number
+    name?: string
     plantId: number
   }
 
@@ -5417,29 +5450,35 @@ export namespace Prisma {
   }
 
   export type InverterUpdateWithoutMetricsInput = {
+    name?: StringFieldUpdateOperationsInput | string
     plant?: PlantUpdateOneRequiredWithoutInvertersNestedInput
   }
 
   export type InverterUncheckedUpdateWithoutMetricsInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     plantId?: IntFieldUpdateOperationsInput | number
   }
 
   export type InverterCreateManyPlantInput = {
     id?: number
+    name?: string
   }
 
   export type InverterUpdateWithoutPlantInput = {
+    name?: StringFieldUpdateOperationsInput | string
     metrics?: MetricUpdateManyWithoutInverterNestedInput
   }
 
   export type InverterUncheckedUpdateWithoutPlantInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     metrics?: MetricUncheckedUpdateManyWithoutInverterNestedInput
   }
 
   export type InverterUncheckedUpdateManyWithoutPlantInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
   }
 
   export type MetricCreateManyInverterInput = {

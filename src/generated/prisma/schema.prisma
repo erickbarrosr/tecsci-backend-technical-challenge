@@ -17,6 +17,7 @@ model Plant {
 
 model Inverter {
   id      Int      @id @default(autoincrement())
+  name    String   @default("")
   plantId Int
   plant   Plant    @relation(fields: [plantId], references: [id])
   metrics Metric[]

@@ -128,6 +128,7 @@ exports.Prisma.PlantScalarFieldEnum = {
 
 exports.Prisma.InverterScalarFieldEnum = {
   id: 'id',
+  name: 'name',
   plantId: 'plantId'
 };
 
